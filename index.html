@@ -1,0 +1,270 @@
+<!doctype html>
+<!-- Объявление типа документа. Говорит браузеру: "это HTML5" -->
+<html lang="ru">
+  <!-- Начало HTML-документа. lang="ru" — язык русский (важно для поисковиков и screen-readers) -->
+  <head>
+    <!-- "Голова" сайта — тут настройки, которые не видны пользователю -->
+    <meta charset="UTF-8" />
+    <!-- Кодировка UTF-8 — чтобы русские буквы отображались правильно -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Эта строка делает сайт адаптивным — корректно выглядит на телефонах -->
+
+    <title>СеменаПро — магазин семян томатов и перцев</title>
+    <!-- Заголовок вкладки браузера -->
+
+    <!-- Подключаем файл стилей. href — путь к CSS-файлу -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Всё, что видит пользователь, находится внутри body -->
+
+    <!-- ================= ШАПКА САЙТА (HEADER) ================= -->
+    <header class="header">
+      <div class="container">
+        <!-- Логотип слева -->
+        <a href="index.html" class="logo"> 🍅 СеменаПро </a>
+
+        <!-- Меню навигации -->
+        <nav class="menu">
+          <a href="index.html">Главная</a>
+          <a href="catalog.html">Каталог</a>
+          <a href="about.html">О нас</a>
+          <a href="contacts.html">Контакты</a>
+        </nav>
+
+        <!-- Правая часть шапки: корзина и бургер-кнопка -->
+        <div class="header-right">
+          <!-- Кнопка переключения темы (НОВОЕ!) -->
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Переключить тему"
+          >
+            <span class="icon-sun">☀️</span>
+            <span class="icon-moon">🌙</span>
+          </button>
+
+          <!-- Иконка избранного -->
+          <a href="favorites.html" class="favorites-icon">
+            ❤️ <span class="favorites-count">0</span>
+          </a>
+
+          <!-- Иконка корзины -->
+          <a href="cart.html" class="cart-icon">
+            🛒 <span class="cart-count">0</span>
+          </a>
+
+          <!-- Бургер-кнопка -->
+          <button class="burger-btn" aria-label="Открыть меню">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Оверлей (затемнение фона) при открытом меню -->
+    <!-- Скрыт по умолчанию, появляется когда меню открыто -->
+    <div class="overlay"></div>
+
+    <!-- ================= ГЛАВНЫЙ БАННЕР (HERO) ================= -->
+    <section class="hero">
+      <!-- section — смысловой раздел страницы -->
+      <div class="container">
+        <h1>Семена томатов и перцев<br />с доставкой по всей России</h1>
+        <p>Более 1000 сортов от проверенных селекционеров</p>
+        <a href="catalog.html" class="btn">Перейти в каталог</a>
+        <!-- btn — класс для кнопки, стили опишем в CSS -->
+      </div>
+    </section>
+
+    <!-- ================= БЛОК КАТЕГОРИЙ ================= -->
+    <section class="categories">
+      <div class="container">
+        <h2>Наши категории</h2>
+
+        <!-- Сетка из карточек категорий -->
+        <div class="categories-grid">
+          <!-- Карточка 1: Индетерминантные томаты -->
+          <a href="catalog.html?type=indeterminant" class="category-card">
+            <!-- Заменяем эмодзи на фотографию -->
+            <div class="category-image">
+              <img
+                src="images/categories/category-indeterminant.jpg"
+                alt="Индетерминантные томаты"
+                onerror="
+                  this.style.display = 'none';
+                  this.parentElement.innerHTML = '🍅';
+                "
+              />
+              <!-- onerror — если фото не загрузилось, показываем эмодзи -->
+            </div>
+            <h3>Индетерминантные томаты</h3>
+            <p>Высокорослые, для теплиц</p>
+          </a>
+
+          <!-- Карточка 2: Детерминантные томаты -->
+          <a href="catalog.html?type=determinant" class="category-card">
+            <div class="category-image">
+              <img
+                src="images/categories/category-determinant.jpg"
+                alt="Детерминантные томаты"
+                onerror="
+                  this.style.display = 'none';
+                  this.parentElement.innerHTML = '🍅';
+                "
+              />
+            </div>
+            <h3>Детерминантные томаты</h3>
+            <p>Компактные, для открытого грунта</p>
+          </a>
+
+          <!-- Карточка 3: Томаты-гномы -->
+          <a href="catalog.html?type=dwarf" class="category-card">
+            <div class="category-image">
+              <img
+                src="images/categories/category-dwarf.jpg"
+                alt="Томаты-гномы"
+                onerror="
+                  this.style.display = 'none';
+                  this.parentElement.innerHTML = '🪴';
+                "
+              />
+            </div>
+            <h3>Томаты-гномы</h3>
+            <p>Для балконов и подоконников</p>
+          </a>
+
+          <!-- Карточка 4: Сладкие перцы -->
+          <a href="catalog.html?type=sweet-pepper" class="category-card">
+            <div class="category-image">
+              <img
+                src="images/categories/category-sweet-pepper.jpg"
+                alt="Сладкие перцы"
+                onerror="
+                  this.style.display = 'none';
+                  this.parentElement.innerHTML = '🫑';
+                "
+              />
+            </div>
+            <h3>Сладкие перцы</h3>
+            <p>Сочные и ароматные</p>
+          </a>
+
+          <!-- Карточка 5: Острые перцы -->
+          <a href="catalog.html?type=hot-pepper" class="category-card">
+            <div class="category-image">
+              <img
+                src="images/categories/category-hot-pepper.jpg"
+                alt="Острые перцы"
+                onerror="
+                  this.style.display = 'none';
+                  this.parentElement.innerHTML = '🌶️';
+                "
+              />
+            </div>
+            <h3>Острые перцы</h3>
+            <p>Для любителей пикантного</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ПОПУЛЯРНЫЕ ТОВАРЫ ================= -->
+    <section class="popular">
+      <div class="container">
+        <h2>Популярные сорта</h2>
+
+        <div class="products-grid">
+          <!-- Карточка 1: Бычье сердце (id=1) -->
+          <div class="product-card">
+            <!-- Картинка — ссылка на страницу товара -->
+            <a href="product.html?id=1">
+              <div class="product-image">🍅</div>
+            </a>
+            <!-- Название — тоже ссылка -->
+            <a href="product.html?id=1">
+              <h3 class="product-title">Бычье сердце</h3>
+            </a>
+            <p class="product-desc">Индетерминантный, среднеспелый</p>
+            <div class="product-footer">
+              <span class="product-price">45 ₽</span>
+              <!-- data-id="1" — JS использует этот номер, чтобы добавить нужный товар -->
+              <button class="btn-add" data-id="1">В корзину</button>
+            </div>
+          </div>
+
+          <!-- Карточка 2: Де Барао (id=2) -->
+          <div class="product-card">
+            <a href="product.html?id=2">
+              <div class="product-image">🍅</div>
+            </a>
+            <a href="product.html?id=2">
+              <h3 class="product-title">Де Барао</h3>
+            </a>
+            <p class="product-desc">Индетерминантный, позднеспелый</p>
+            <div class="product-footer">
+              <span class="product-price">50 ₽</span>
+              <button class="btn-add" data-id="2">В корзину</button>
+            </div>
+          </div>
+
+          <!-- Карточка 3: Белозёрка (id=15) -->
+          <div class="product-card">
+            <a href="product.html?id=15">
+              <div class="product-image">🫑</div>
+            </a>
+            <a href="product.html?id=15">
+              <h3 class="product-title">Белозёрка</h3>
+            </a>
+            <p class="product-desc">Сладкий перец, раннеспелый</p>
+            <div class="product-footer">
+              <span class="product-price">40 ₽</span>
+              <button class="btn-add" data-id="15">В корзину</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- ================= БЛОК ПОСЛЕДНИХ СТАТЕЙ ================= -->
+    <section class="blog-preview">
+        <div class="container">
+            <h2>📰 Последние статьи</h2>
+            
+            <div class="blog-preview-grid" id="blog-preview-container">
+                <!-- JS заполнит этот блок -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="blog.html" class="btn">Все статьи блога →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ПОДВАЛ САЙТА (FOOTER) ================= -->
+    <footer class="footer">
+      <div class="container">
+        <p>© 2026 СеменаПро. Все права защищены.</p>
+        <p>📞 +7 (999) 123-45-67 | ✉️ info@semena-pro.ru</p>
+        <p style="margin-top: 10px; font-size: 12px; opacity: 0.6">
+          <a
+            href="admin.html"
+            style="color: var(--text-inverse); text-decoration: none"
+            >Для администратора</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <!-- Подключаем JS-файл. defer — скрипт запустится после загрузки HTML -->
+    <script src="js/script.js" defer></script>
+  </body>
+</html>
+
+<!--     ├── category-indeterminant.jpg    ← Индетерминантные томаты
+        ├── category-determinant.jpg      ← Детерминантные томаты
+        ├── category-dwarf.jpg            ← Томаты-гномы
+        ├── category-sweet-pepper.jpg     ← Сладкие перцы
+        └── category-hot-pepper.jpg   -->
